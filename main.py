@@ -210,6 +210,8 @@ def search_by_regex():
     #Get the text and the user regex
     user_file = show_text.get(1.0, END)
     regex_user = entry_regex_field.get()
+    button_open_text_regex = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_regex, width=12)
+    button_open_text_regex.place(x=140, y=85)
 
     x = re.findall(regex_user, user_file)
 
@@ -223,8 +225,13 @@ def search_by_regex():
         show_text.delete("1.0", END)
         for i in range(l):
             toto = re.findall(regex_user, user_file)[i]
-            format_tuple = "{}\n".format(' | '.join(toto))
-            show_text.insert(END, format_tuple)
+
+            if type(toto) is tuple:
+                format_tuple = '{}\n'.format(' | '.join(toto))
+                show_text.insert(END, format_tuple)
+            else:
+                format1 = ("%s |\n" % (toto))
+                show_text.insert(END, format1)
 
 def rb_ip():
 
@@ -640,6 +647,8 @@ def regex_ip():
     # Get the text and the user regex
     user_file = show_text.get(1.0, END)
     var_regex_IP = entry_information_field.get()
+    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_search, width=12)
+    button_open_text_search.place(x=141, y=212)
 
     regex_user = '(?P<ip>' + var_regex_IP + ') - - \[(?P<date>.*?) (?P<time_zone>[-+](.*?))\] "(?P<method>\w+) (?P<request_path>.*?) HTTP/(?P<http_version>.*?)" (?P<return_code>\d+) (?P<response_size>\d+) "(?P<referrer>.*?)" "(?P<user_agent>.*?)"'
 
@@ -661,6 +670,8 @@ def regex_date():
     # Get the text and the user regex
     user_file = show_text.get(1.0, END)
     var_regex_Date = entry_information_field.get()
+    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_search, width=12)
+    button_open_text_search.place(x=141, y=212)
 
     regex_user ='(?P<ip>[(\d\.)]+) - - \[(?P<date>' + var_regex_Date + ') (?P<time_zone>[-+](.*?))\] "(?P<method>\w+) (?P<request_path>.*?) HTTP/(?P<http_version>.*?)" (?P<return_code>\d+) (?P<response_size>\d+) "(?P<referrer>.*?)" "(?P<user_agent>.*?)"'
     x = re.findall(regex_user, user_file)
@@ -682,6 +693,8 @@ def regex_method():
     # Get the text and the user regex
     user_file = show_text.get(1.0, END)
     var_regex_Method = entry_information_field.get()
+    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_search, width=12)
+    button_open_text_search.place(x=141, y=212)
 
     regex_user = '(?P<ip>[(\d\.)]+) - - \[(?P<date>.*?) (?P<time_zone>[-+](.*?))\] "(?P<method>' + var_regex_Method + ') (?P<request_path>.*?) HTTP/(?P<http_version>.*?)" (?P<return_code>\d+) (?P<response_size>\d+) "(?P<referrer>.*?)" "(?P<user_agent>.*?)"'
     x = re.findall(regex_user, user_file)
@@ -704,6 +717,8 @@ def regex_return_code():
     # Get the text and the user regex
     user_file = show_text.get(1.0, END)
     var_regex_RC = entry_information_field.get()
+    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_search, width=12)
+    button_open_text_search.place(x=141, y=212)
 
     regex_user = '(?P<ip>[(\d\.)]+) - - \[(?P<date>.*?) (?P<time_zone>[-+](.*?))\] "(?P<method>\w+) (?P<request_path>.*?) HTTP/(?P<http_version>.*?)" (?P<return_code>' + var_regex_RC + ') (?P<response_size>\d+) "(?P<referrer>.*?)" "(?P<user_agent>.*?)"'
 
@@ -726,6 +741,9 @@ def regex_user_agent():
     # Get the text and the user regex
     user_file = show_text.get(1.0, END)
     var_regex_User_Agent = entry_information_field.get()
+    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file",
+                                     command=open_text_search, width=12)
+    button_open_text_search.place(x=141, y=212)
 
     var_regex_User_Agent = var_regex_User_Agent.replace("(", ".*?")
     var_regex_User_Agent = var_regex_User_Agent.replace("+", ".*?")
