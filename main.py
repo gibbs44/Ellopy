@@ -389,7 +389,7 @@ def back(image_number, text_number):
     button_forward = Button(labelframe_viewer, font="Arial 11", text=">>", command=lambda: forward(image_number + 1, text_number + 1))
     button_back = Button(labelframe_viewer, font="Arial 11", text="<<", command=lambda: back(image_number - 1, text_number - 1))
 
-    if image_number == 11:
+    if image_number == 1:
         button_back = Button(labelframe_viewer, font="Arial 11", text="<<", state=DISABLED)
 
     label_img.grid(row=0, column=2)
@@ -743,8 +743,7 @@ def regex_user_agent():
     # Get the text and the user regex
     user_file = show_text.get(1.0, END)
     var_regex_User_Agent = entry_information_field.get()
-    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file",
-                                     command=open_text_search, width=12)
+    button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_search, width=12)
     button_open_text_search.place(x=141, y=212)
 
     var_regex_User_Agent = var_regex_User_Agent.replace("(", ".*?")
