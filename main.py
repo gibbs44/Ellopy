@@ -71,6 +71,8 @@ def open_file():
         my_label_wait_img.place_forget()
         label_backgroung_dowload.place_forget()
         messagebox.showinfo(title="File not open", message="No file opened. \n \nIf you need help, click on help menu at the top \nof the application.", icon='error')
+        label_file_explorer.configure(text="File not open")
+        show_text.delete("1.0", END)
     else:
         # Read and show open file
         show_text.delete("1.0", END)
