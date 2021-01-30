@@ -91,25 +91,25 @@ def open_file():
             conteneur_main_window.update_idletasks()
             time.sleep(1)
 
-    if count_answer == 0:
+        if count_answer == 0:
 
-        label_file_explorer.configure(text="Your selected file is located : file type error")
-        error_text = 'Your file is not in apache format, try an other file'
-        show_text.insert(END, error_text)
-        my_progress.place_forget()
-        label_wait.place_forget()
-        my_label_wait_img.place_forget()
-        label_backgroung_dowload.place_forget()
+            label_file_explorer.configure(text="Your selected file is located : file type error")
+            error_text = 'Your file is not in apache format, try an other file'
+            show_text.insert(END, error_text)
+            my_progress.place_forget()
+            label_wait.place_forget()
+            my_label_wait_img.place_forget()
+            label_backgroung_dowload.place_forget()
 
-    else:
-        content_file = file_content.read()
-        show_text.insert(END, content_file)
+        else:
+            content_file = file_content.read()
+            show_text.insert(END, content_file)
 
-        label_file_explorer.configure(text="Your selected file is located : " + open_file_name)
-        my_progress.place_forget()
-        label_wait.place_forget()
-        my_label_wait_img.place_forget()
-        label_backgroung_dowload.place_forget()
+            label_file_explorer.configure(text="Your selected file is located : " + open_file_name)
+            my_progress.place_forget()
+            label_wait.place_forget()
+            my_label_wait_img.place_forget()
+            label_backgroung_dowload.place_forget()
 
 def save_as_file():
     # Variable needed to save the file
