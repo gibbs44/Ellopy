@@ -112,35 +112,26 @@ def open_file():
             label_backgroung_dowload.place_forget()
 
 def save_as_file():
-    # Variable needed to save the file
+    #Variable needed to save the file
     global open_status_name
 
-    # Check if the file is opened
+    #Check if the file is opened
     if not open_status_name:
         messagebox.showinfo(title="File not open", message="No file opened. \n \nIf you need help, click on help menu at the top \nof the application.", icon='error')
     else:
-        # Save as file part
+        #Save as file part
         save_as_file_path = filedialog.asksaveasfilename(defaultextension=".log", initialdir="/", title="Save File As", filetypes=(("Log File", "*.log"), ("Text File", "*.txt")))
 
+
         if save_as_file_path:
-            open_status_name = save_as_file_path
+            #open_status_name = save_as_file_path
             save_as_file_name = save_as_file_path
             save_as_file_name.replace("/", "")
             save_as_file_path = open(save_as_file_path, 'w')
             save_as_file_path.write(show_text.get(1.0, END))
             save_as_file_path.close()
-            # Chek if the user want to opened the new file or not
-            msgbox_confirm_save = messagebox.askquestion(title="Opened save as file", message="Do you want to open the save as file you just created?", icon='question')
-            if msgbox_confirm_save == 'yes':
-                # Open the new file
-                show_text.delete("1.0", END)
-                path_open_save_as = open(save_as_file_name, 'r')
-                open_file_read = path_open_save_as.read()
-                label_file_explorer.configure(text="Your selected file is located : " + save_as_file_name)
-                label_file_explorer.configure()
-                show_text.grid(row=0, columnspan=10, pady=30, padx=15, sticky=NSEW)
-                show_text.insert(END, open_file_read)
-                save_as_file_path.close()
+            #Chek if the user want to opened the new file or not
+            messagebox.showwarning(title="File save-as", message="Your file has been saved as. To access it, click on open and choose your file.", icon='warning')
 
 def save_file():
     #Variable needed to save the file
