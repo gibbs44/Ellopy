@@ -111,24 +111,6 @@ def open_file():
             my_label_wait_img.place_forget()
             label_backgroung_dowload.place_forget()
 
-def save_file():
-    #Variable needed to save the file
-    global open_status_name
-
-    #Check if the file is opened
-    if not open_status_name:
-        messagebox.showinfo(title="File not open", message="No file opened. \n \nIf you need help, click on help menu at the top \nof the application.", icon='error')
-    else:
-        # Confirm file overwrite
-        msgbox_confirm_save = messagebox.askquestion(title="Save the changes", message="Are you sure you want to modified the original file ?", icon='warning')
-        if msgbox_confirm_save == 'yes':
-            filename = open(open_status_name, 'w')
-            filename.write(show_text.get(1.0, END))
-            filename.close()
-            messagebox.showinfo(title="File saved", message="The file was saved", icon='info')
-        else:
-            messagebox.showinfo(title="File not modified", message="The file was not modified", icon='info')
-
 def save_as_file():
     #Variable needed to save the file
     global open_status_name
@@ -150,6 +132,24 @@ def save_as_file():
             save_as_file_path.close()
             #Chek if the user want to opened the new file or not
             messagebox.showwarning(title="File save-as", message="Your file has been saved as. To access it, click on open and choose your file.", icon='warning')
+
+def save_file():
+    #Variable needed to save the file
+    global open_status_name
+
+    #Check if the file is opened
+    if not open_status_name:
+        messagebox.showinfo(title="File not open", message="No file opened. \n \nIf you need help, click on help menu at the top \nof the application.", icon='error')
+    else:
+        # Confirm file overwrite
+        msgbox_confirm_save = messagebox.askquestion(title="Save the changes", message="Are you sure you want to modified the original file ?", icon='warning')
+        if msgbox_confirm_save == 'yes':
+            filename = open(open_status_name, 'w')
+            filename.write(show_text.get(1.0, END))
+            filename.close()
+            messagebox.showinfo(title="File saved", message="The file was saved", icon='info')
+        else:
+            messagebox.showinfo(title="File not modified", message="The file was not modified", icon='info')
 
 def export_to_csv():
 
