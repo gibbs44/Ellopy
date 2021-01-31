@@ -1,4 +1,7 @@
-Version de python : 3.8
+Ellopy is an application that allows you to analyse Apache logs.
 
-Installation bibliothèque pillow via la commmande :
-	pip install pillow
+Requirements of the application :
+	Compatible OS: Windows
+	Python version: 3.8
+	Installation of the pillow library: pip install pillow
+	Installation of tkinter library : pip install tkinter
