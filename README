@@ -4,3 +4,4 @@ Requirements of the application :
 	Compatible OS: Windows
 	Python version: 3.8
 	Installation of the pillow library: pip install pillow
+	Installation of tkinter library : pip install tkinter
