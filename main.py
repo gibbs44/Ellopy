@@ -746,9 +746,9 @@ def regex_user_agent():
     button_open_text_search = Button(labelframe_free_field, font="Arial 11", text="Show initial file", command=open_text_search, width=12)
     button_open_text_search.place(x=141, y=212)
 
-    var_regex_User_Agent = var_regex_User_Agent.replace("(", ".*?")
-    var_regex_User_Agent = var_regex_User_Agent.replace("+", ".*?")
-    var_regex_User_Agent = var_regex_User_Agent.replace(")", ".*?")
+    var_regex_User_Agent = var_regex_User_Agent.replace("(", "\(")
+    var_regex_User_Agent = var_regex_User_Agent.replace("+", "\+")
+    var_regex_User_Agent = var_regex_User_Agent.replace(")", "\)")
 
     regex_user = '(?P<ip>[(\d\.)]+) - - \[(?P<date>.*?) (?P<time_zone>[-+](.*?))\] "(?P<method>\w+) (?P<request_path>.*?) HTTP/(?P<http_version>.*?)" (?P<return_code>\d+) (?P<response_size>\d+) "(?P<referrer>.*?)" "(?P<user_agent>.*?' + var_regex_User_Agent + '.*?)"'
 

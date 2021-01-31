@@ -1,0 +1,4 @@
+Version de python : 3.8
+
+Installation bibliothèque pillow via la commmande :
+	pip install pillow
